@@ -8,7 +8,7 @@ const port = 3000;
 initDb();
 // Configuraciones 
 app.use(express.json());
-// app.use(corsMiddleware);
+app.use(corsMiddleware);
 // Rutas
 app.use('/api',routes);
 // Llamado al servidor

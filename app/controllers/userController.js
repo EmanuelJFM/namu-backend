@@ -1,4 +1,4 @@
-const user = require('../models/userModel'); // Importa el modelo de usuario si estás utilizando Mongoose
+const user = require('../models/user'); // Importa el modelo de usuario si estás utilizando Mongoose
 
 const userController = {
     UserLogin: async (req, res) => {
@@ -17,5 +17,5 @@ const userController = {
       }
     },
   };
-  
+
 module.exports = userController;
