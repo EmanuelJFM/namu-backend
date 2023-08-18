@@ -22,7 +22,7 @@
 //     Horas: [ '10:00 AM', '01:00 PM', '04:00 PM', '07:00 PM' ]
 //   }
 // ]
-// La coleccion user contiene el siguiente JSon: [
+// La coleccion users contiene el siguiente JSon: [
 //   {
 //     _id: ObjectId("64d853ead1dcdb16a0bf9df9"),
 //     name: 'Juan Perez',
