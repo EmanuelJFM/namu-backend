@@ -1,9 +1,10 @@
-const User = require('../models/userModel'); // Importa el modelo de usuario si estás utilizando Mongoose
+const user = require('../models/userModel'); // Importa el modelo de usuario si estás utilizando Mongoose
 
 const userController = {
     UserLogin: async (req, res) => {
       try {
-        const usuarios = await User.find();
+        const usuarios = await user.find().exec();
+        console.log("Usuarios encontrados:", usuarios);
         if (!usuarios || usuarios.length === 0) {
           console.log("No se encontraron usuarios en la base de datos");
           return res.status(404).json({ message: "No se encontraron usuarios" });
