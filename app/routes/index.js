@@ -4,6 +4,7 @@ const userController = require('../controllers/userController'); // Importa el c
 
 // Definir rutas para usuarios
 router.post('/login', userController.UserLogin);
+router.post('/create', userController.CreateUser);
 
 
 module.exports = router;

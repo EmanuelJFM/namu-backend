@@ -21,6 +21,37 @@ const userController = {
       res.status(500).json({ message: 'Error con el servidor' });
     }
   },
+  CreateUser: async (req, res) => {
+    try {
+      const { name, dni, phone, email, user, password } = req.body;
+
+      // Verificar si ya existe un usuario con el mismo dni o email
+      const existingUser = await User.findOne({ $or: [{ dni }, { email }] });
+      if (existingUser) {
+        return res.status(400).json({ message: 'El usuario ya existe' });
+      }
+
+      // Crear un nuevo usuario
+      const newUser = new User({
+        name,
+        dni,
+        phone,
+        email,
+        user,
+        password
+      });
+
+      // Guardar el nuevo usuario en la base de datos
+      await newUser.save();
+
+      res.status(201).json({ message: 'Usuario creado exitosamente' });
+    } catch (error) {
+      console.error('Error al crear el usuario:', error.message);
+      res.status(500).json({ message: 'Error con el servidor' });
+    }
+  },
+
+  
 };
 
 module.exports = userController;
