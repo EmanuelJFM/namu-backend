@@ -34,3 +34,4 @@ La coleccion user contiene el siguiente JSon: [
   }
 ]
 Estas son de momento las 3 colecciones con las cuales se esta trabajando las vista del usuario en el apartado frontend
+Los id se crean por defecto, omitir
