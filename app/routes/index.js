@@ -3,7 +3,7 @@ const router = express.Router();
 const userController = require('../controllers/userController'); // Importa el controlador de usuarios
 
 // Definir rutas para usuarios
-router.get('/login', userController.UserLogin);
+router.post('/login', userController.UserLogin);
 
 
 module.exports = router;
