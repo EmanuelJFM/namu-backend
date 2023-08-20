@@ -10,8 +10,9 @@ router.post('/create', userController.CreateUser);
 // Definiendo rutas para horarios
 router.get('/horarios', horarioController.GetHorario);
 //Definiendo rutas para reservas
-router.post('/reserva', reservaController.PostReserva);
+router.post('/reserva', reservaController.CrearReserva);
 router.post('/listar', reservaController.ListarReservas);
+router.post('/tabla', reservaController.ListarTabla);
 router.put('/editar', reservaController.EditarReserva);
 
 module.exports = router;

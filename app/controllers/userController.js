@@ -3,27 +3,19 @@ const User = require('../models/userModel'); // Importa el modelo de usuario si 
 const userController = {
   UserLogin: async (req, res) => {
     try {
-      const { user, password } = req.query; // Obtén los parámetros user y password de la consulta
+      const { user, password } = req.body; // Obtén los parámetros user y password de la consulta
 
       // Buscar el usuario por nombre de usuario
       const usuario = await User.findOne({ user });
-
-      if (!usuario) {
-        return res.status(404).json({ message: 'Usuario no encontrado' });
+      if (!usuario || usuario.password !== password) {
+        return res.status(400).json({ message: 'Usuario no encontrado' });
       }
-
-      // Verificar la contraseña
-      if (usuario.password !== password) {
-        return res.status(401).json({ message: 'Contraseña incorrecta' });
-      }
-
       // Devolver solo los campos requeridos
       const userData = {
         name: usuario.name,
         phone: usuario.phone,
         email: usuario.email
       };
-
       res.json(userData);
     } catch (error) {
       console.error('Error en la consulta a la base de datos:', error.message);

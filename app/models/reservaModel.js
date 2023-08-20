@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const ReservaSchema = new Schema({
     id: {
-        type: Object,
+        type: String,
         required: true,
         unique: true
     },
@@ -39,7 +39,7 @@ const ReservaSchema = new Schema({
         required: true
     },
     status: {
-        type: Array,
+        type: String,
         required: true
     }
 });
