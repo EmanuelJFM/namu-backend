@@ -1,6 +1,7 @@
 const User = require('../models/userModel'); // Importa el modelo de usuario si estás utilizando Mongoose
 
 const userController = {
+
   UserLogin: async (req, res) => {
     try {
       const { user, password } = req.body; // Obtén los parámetros user y password de la consulta

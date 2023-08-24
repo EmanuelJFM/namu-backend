@@ -1,19 +1,17 @@
 const Horario = require('../models/horarioModel')
 
 const horarioController = {
-    GetHorario: async (req, res) => {
+    PostHorario: async (req, res) => {
         try {
-          const { Dia } = req.query; // Obtén el parámetro day de la consulta
-    
-          if (!Dia) {
-            return res.status(400).json({ message: 'El parámetro "Dia" es requerido' });
+          const {fecha}  = req.body; // Obtén el parámetro day de la consulta
+          if (!fecha) {
+            return res.status(400).json({ message: 'El parámetro fecha es requerido' });
           }
-    
           // Buscar el horario según el día proporcionado
-          const horario = await Horario.find({ Dia},'Horas');
-    
-          if (!horario || horario.length === 0) {
-            return res.status(404).json({ message: 'Horario no encontrado para el día especificado' });
+          const horario = await Horario.findOne({fecha}, 'hora');
+
+          if (!horario) {
+            return res.status(400).json({ message: 'Horario no encontrado para el día especificado'});
           }
           res.json(horario);
         } catch (error) {

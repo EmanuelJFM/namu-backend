@@ -8,7 +8,7 @@ const reservaController = require('../controllers/reservaController');
 router.post('/login', userController.UserLogin);
 router.post('/create', userController.CreateUser);
 // Definiendo rutas para horarios
-router.get('/horarios', horarioController.GetHorario);
+router.post('/horarios', horarioController.PostHorario);
 //Definiendo rutas para reservas
 router.post('/reserva', reservaController.CrearReserva);
 router.post('/listar', reservaController.ListarReservas);

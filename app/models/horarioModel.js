@@ -2,13 +2,16 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const HorarioSchema = new Schema({
-    Dia: {
+
+    fecha: {
         type: String,
         required: true
     },
-    Horas: {
-        type: Array,
+    hora: {
+        type: [String],
         required: true,
+        default: []
     }
-});
+}
+);
 module.exports = mongoose.model('horarios', HorarioSchema);
